@@ -1,0 +1,14 @@
+.pSource {
+  font-size: small;
+  color: #808080;
+}
+.pSource a {
+  color: #808080;
+  font-size: smaller;
+  transition: all 500ms;
+}
+.pSource a:hover {
+  font-size: small;
+  color: #5b5b5b;
+  transition: all 500ms;
+}

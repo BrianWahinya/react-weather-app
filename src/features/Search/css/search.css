@@ -1,0 +1,26 @@
+.divSearch {
+  display: flex;
+  flex-direction: column;
+}
+.divSearch .divInputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.divSearch .divInputs input {
+  width: 79%;
+  height: 20px;
+}
+.divSearch .divInputs button {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 19%;
+  padding: 5px 13px;
+  font-size: small;
+  margin: 5px;
+}
+.divSearch .divInfo {
+  display: flex;
+  justify-content: center;
+}
