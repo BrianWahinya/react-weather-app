@@ -30,10 +30,11 @@ const useSearch = () => {
 
   const submit = (e) => {
     // e.preventDefault();
+    const currentLocation = location.toLowerCase();
     setErrorObj({});
-    if (location) {
-      queryClient.invalidateQueries(["weatherData", location.toLowerCase()]);
-      setQueryKeys(["weatherData", location.toLowerCase()]);
+    if (currentLocation) {
+      queryClient.invalidateQueries(["weatherData", currentLocation]);
+      setQueryKeys(["weatherData", currentLocation]);
       refetch();
     }
   };

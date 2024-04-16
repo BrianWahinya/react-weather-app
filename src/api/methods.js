@@ -11,3 +11,6 @@ export const getWeatherData = (cityName) =>
       }`
     )
     .then((res) => res.data);
+
+export const getBrowserLocation = () =>
+  axios.get(api.location).then((res) => res.data);
