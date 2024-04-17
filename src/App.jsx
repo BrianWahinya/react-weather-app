@@ -1,15 +1,15 @@
-import "./App.css";
 import { Location, Search } from "./features";
 import { AppProvider } from "./context/AppContext";
 import { Footer, Navbar } from "./components";
 import { Container, Row, Col, Card, CardHeader, CardBody } from "reactstrap";
+import "./App.css";
 
 function App() {
   return (
     <>
       <Navbar />
       <main>
-        <Container className="flex-grow-1" fluid>
+        <Container className="divMain flex-grow-1" fluid>
           <Row lg="3" md="2" sm="1" xs="1">
             <Col className="" md="3" lg="3">
               <aside className="asideControls"></aside>
