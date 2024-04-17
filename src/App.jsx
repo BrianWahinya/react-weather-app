@@ -1,20 +1,39 @@
-import icon_weather from "./assets/icon_weather.svg";
 import "./App.css";
 import { Location, Search } from "./features";
 import { AppProvider } from "./context/AppContext";
-import { Footer } from "./components";
+import { Footer, Navbar } from "./components";
+import { Container, Row, Col, Card, CardHeader, CardBody } from "reactstrap";
 
 function App() {
   return (
     <>
-      <code>
-        Coding & design stage: please be patient{" "}
-        <span style={{ fontSize: "20px" }}>&#128521;</span>
-      </code>
-      <AppProvider>
-        <Search />
-        <Location />
-      </AppProvider>
+      <Navbar />
+      <main>
+        <Container className="flex-grow-1" fluid>
+          <Row lg="3" md="2" sm="1" xs="1">
+            <Col className="" md="3" lg="3">
+              <aside className="asideControls"></aside>
+            </Col>
+
+            <AppProvider>
+              <Col className="" sm="12" md="9" lg="6">
+                <Card className="my-2 mx-4">
+                  <CardHeader>
+                    <Search />
+                  </CardHeader>
+                  <CardBody>
+                    <Location />
+                  </CardBody>
+                </Card>
+              </Col>
+            </AppProvider>
+
+            <Col className="" md="12" lg="3">
+              <aside className="asideFavorites"></aside>
+            </Col>
+          </Row>
+        </Container>
+      </main>
       <Footer />
     </>
   );

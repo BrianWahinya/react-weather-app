@@ -1,0 +1,7 @@
+.spanTime {
+  font-family: "TimeFont", sans-serif !important;
+  display: block;
+  text-align: center;
+  font-size: large;
+  min-width: 200px;
+}

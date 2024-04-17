@@ -1,14 +1,30 @@
-.pSource {
+footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 5px;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+footer .pSource,
+footer .pCopyright {
   font-size: small;
   color: #808080;
+  margin: 7px;
+  text-wrap: nowrap;
 }
-.pSource a {
+footer .pSource a,
+footer .pCopyright a {
   color: #808080;
-  font-size: smaller;
   transition: all 500ms;
 }
-.pSource a:hover {
-  font-size: small;
+footer .pSource a:hover,
+footer .pCopyright a:hover {
+  font-size: medium;
   color: #5b5b5b;
   transition: all 500ms;
 }

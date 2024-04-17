@@ -1,5 +1,5 @@
 import useSearch from "./useSearch";
-import { Loader } from "../../components";
+import { Loader, SearchBox } from "../../components";
 
 import "./css/search.css";
 
@@ -16,16 +16,7 @@ const Search = () => {
 
   return (
     <div className="divSearch">
-      <div className="divInputs">
-        <input
-          placeholder="Input location"
-          value={location}
-          onChange={onChange}
-        />
-        <button className="btnSearch" onClick={submit}>
-          Search
-        </button>
-      </div>
+      <SearchBox value={location} onChange={onChange} submit={submit} />
       <div className="divInfo">
         {isFetching && isLoading && !isError && <Loader />}
         {!isFetching && !isLoading && isError && errorObj.response ? (
