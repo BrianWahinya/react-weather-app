@@ -1,6 +1,6 @@
 import "./css/searchbox.css";
 
-const SearchBox = ({ location, onChange, submit }) => {
+const SearchBox = ({ value, onChange, submit }) => {
   return (
     <div className="input-container">
       <input
@@ -8,7 +8,7 @@ const SearchBox = ({ location, onChange, submit }) => {
         name="text"
         className="input"
         placeholder="Search a location..."
-        value={location}
+        value={value}
         onChange={onChange}
       />
       <svg

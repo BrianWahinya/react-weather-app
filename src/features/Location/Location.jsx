@@ -2,7 +2,7 @@ import { useAppContext } from "../../context/AppContext";
 import "./css/location.css";
 
 const genDetails = (obj) => {
-  console.log(obj);
+  // console.log(obj);
   const { name, weather, main } = obj;
   const { main: climate, description, icon } = weather[0];
   return (
