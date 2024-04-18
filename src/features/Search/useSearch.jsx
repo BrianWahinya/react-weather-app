@@ -41,7 +41,7 @@ const useSearch = () => {
 
   useEffect(() => {
     const keyEnterPress = (e) => {
-      if (e.key.toLowerCase() === "enter" && location.length > 1) {
+      if (e?.key?.toLowerCase() === "enter" && location.length > 1) {
         submit();
       }
     };

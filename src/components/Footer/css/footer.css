@@ -24,7 +24,6 @@ footer .pCopyright a {
 }
 footer .pSource a:hover,
 footer .pCopyright a:hover {
-  font-size: medium;
-  color: #5b5b5b;
+  color: #1638b2;
   transition: all 500ms;
 }

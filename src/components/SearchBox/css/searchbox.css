@@ -19,6 +19,9 @@
   transition: all 0.5s;
   z-index: 0;
 }
+.input-container .input:hover, .input-container .input:focus {
+  border: 1px solid #6271f9;
+}
 .input-container .icon {
   position: absolute;
   right: 0;

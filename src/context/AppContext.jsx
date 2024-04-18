@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { deepCopy } from "../helpers/utils";
 import { getBrowserLocation, getWeatherData } from "../api/methods";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const AppContext = createContext();
 
@@ -15,7 +15,11 @@ const reducer = (state, action) => {
     case "changeLocation":
       if (payload) {
         // console.log("reducer", payload);
-        return { ...deepCopy(state), data: [payload] };
+        const substate = deepCopy(state);
+        const subdata = substate.data
+          .slice(0, 5)
+          .filter((item) => item.id !== payload.id);
+        return { ...substate, data: [payload, ...subdata] };
       }
     default:
       return state;

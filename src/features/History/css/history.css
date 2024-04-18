@@ -1,0 +1,53 @@
+.history {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  width: 100%;
+  min-height: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.1764705882);
+  background-color: rgba(33, 37, 41, 0.031372549);
+  border-radius: 5px;
+  padding: 10px;
+  gap: 3px;
+}
+.history.no-history {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.history .historyElem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.031372549);
+  height: 50px;
+  gap: 2px;
+  transition: all 0.2s;
+}
+.history .historyElem:hover {
+  cursor: pointer;
+  background-color: rgba(0, 39, 71, 0.2352941176);
+  transition: all 0.2s;
+}
+.history .historyElem p {
+  margin: 0;
+  padding: 0;
+  min-width: 80px;
+}
+.history .historyElem p.name {
+  min-width: 80px;
+}
+.history .historyElem p.temp {
+  min-width: 60px;
+}
+.history .historyElem p.climate {
+  min-width: 60px;
+}
+.history .historyElem .history-weather-icon {
+  width: 40px;
+  height: 40px;
+}
