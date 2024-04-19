@@ -4,11 +4,14 @@
   justify-content: flex-start;
   align-items: left;
   width: 100%;
+  min-width: 260px;
   min-height: 200px;
+  max-width: 300px;
   border: 1px solid rgba(0, 0, 0, 0.1764705882);
   background-color: rgba(33, 37, 41, 0.031372549);
   border-radius: 5px;
   padding: 10px;
+  box-sizing: border-box;
   gap: 3px;
 }
 .history.no-history {
@@ -25,6 +28,9 @@
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.031372549);
   height: 50px;
+  min-width: 250px;
+  width: 100%;
+  box-sizing: border-box;
   gap: 2px;
   transition: all 0.2s;
 }
@@ -36,16 +42,19 @@
 .history .historyElem p {
   margin: 0;
   padding: 0;
+  width: -moz-fit-content;
+  width: fit-content;
   min-width: 80px;
 }
 .history .historyElem p.name {
   min-width: 80px;
 }
 .history .historyElem p.temp {
-  min-width: 60px;
+  min-width: 50px;
 }
 .history .historyElem p.climate {
   min-width: 60px;
+  text-wrap: nowrap;
 }
 .history .historyElem .history-weather-icon {
   width: 40px;

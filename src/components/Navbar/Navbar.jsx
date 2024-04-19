@@ -6,7 +6,6 @@ import "./css/navbar.css";
 
 const Navbar = () => {
   return (
-    // <nav>
     <ReactNavbar color="dark" dark container>
       <NavbarBrand href="/">
         <Logo />
@@ -21,7 +20,6 @@ const Navbar = () => {
         <Time />
       </NavbarText>
     </ReactNavbar>
-    // </nav>
   );
 };
 export default Navbar;

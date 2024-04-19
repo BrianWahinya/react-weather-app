@@ -1,0 +1,33 @@
+.div-sidebar {
+  display: flex;
+  flex-direction: row;
+  margin: 12px 5px;
+  padding: 5px 10px;
+  gap: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1764705882);
+  background-color: rgba(33, 37, 41, 0.031372549);
+  border-radius: 5px;
+  transition: all 0.25s;
+}
+.div-sidebar button {
+  background-color: transparent;
+  border: none;
+  transition: all 0.25s;
+}
+.div-sidebar button svg {
+  width: 25px;
+  height: 25px;
+  transition: all 0.25s;
+}
+.div-sidebar button.btn-about svg path {
+  fill: #212529 !important;
+}
+.div-sidebar button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.25s;
+}
+.div-sidebar button:hover svg {
+  width: 23px;
+  height: 23px;
+}

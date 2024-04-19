@@ -25,7 +25,7 @@ const Location = () => {
   const { data } = useAppContext();
   //   console.log("location", data);
   return (
-    <div className="divLocation">
+    <div className="div-location">
       {data.length < 1 && <h3>Please enter a location</h3>}
       {data.length > 0 && genDetails(data[0])}
     </div>
