@@ -15,15 +15,17 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <main> */}
-      <Container className="main" fluid>
-        <Row sm="1" md="2">
+      <Container className="main">
+        <Row
+          className="justify-content-center align-items-center"
+          sm="1"
+          md="2"
+        >
           <AppProvider>
             <Col
               className="d-flex flex-column align-items-center my-4"
               sm="12"
-              md={{ offset: 1, size: 3 }}
-              lg={{ offset: 2, size: 3 }}
+              md="3"
               style={{ minWidth: "fit-content" }}
             >
               <Sidebar>
@@ -50,7 +52,6 @@ function App() {
           </AppProvider>
         </Row>
       </Container>
-      {/* </main> */}
       <Footer />
     </>
   );

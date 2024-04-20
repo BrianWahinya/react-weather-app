@@ -12,6 +12,9 @@ const defaultState = {
 const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
+    case "changeRender":
+      return { ...deepCopy(state), initialRender: false };
+
     case "changeLocation":
       if (payload) {
         // console.log("reducer", payload);
@@ -19,8 +22,13 @@ const reducer = (state, action) => {
         const subdata = substate.data
           .slice(0, 5)
           .filter((item) => item.id !== payload.id);
-        return { ...substate, data: [payload, ...subdata] };
+        const mergedstate = { ...substate, data: [payload, ...subdata] };
+        return mergedstate;
       }
+    case "clearData":
+      const substate = deepCopy(state);
+      substate.data = [];
+      return substate;
     default:
       return state;
   }
@@ -31,6 +39,10 @@ const AppProvider = ({ children }) => {
 
   const changeLocation = (locationData) => {
     dispatch({ type: "changeLocation", payload: locationData });
+  };
+
+  const clearData = () => {
+    dispatch({ type: "clearData" });
   };
 
   const { data: browserLocation, refetch } = useQuery({
@@ -44,14 +56,21 @@ const AppProvider = ({ children }) => {
     retry: 0,
   });
 
-  const { isFetching, isError, isLoading, data, error } = useQuery({
+  const {
+    isFetching,
+    isError,
+    isLoading,
+    data,
+    error,
+    refetch: refetchLocationData,
+  } = useQuery({
     queryKey: ["weatherData", browserLocation?.city.toLowerCase()],
     queryFn: () => getWeatherData(browserLocation?.city),
     staleTime: 30 * 60 * 1000,
     refetchInterval: 30 * 60 * 1000,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
-    enabled: !!browserLocation?.city,
+    enabled: false,
     retry: 1,
     retryDelay: 2000,
   });
@@ -60,17 +79,26 @@ const AppProvider = ({ children }) => {
     const timeout = setTimeout(() => {
       refetch();
     }, 1000);
-    return () => clearTimeout(timeout);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   useEffect(() => {
-    if (!isFetching && !isLoading && !isError && state.data.length < 1) {
+    if (browserLocation?.city) {
+      refetchLocationData();
+    }
+  }, [browserLocation]);
+
+  useEffect(() => {
+    if (!isFetching && !isLoading && !isError && state?.data.length < 1) {
       changeLocation(data);
     }
   }, [isFetching, isLoading, isError]);
 
   return (
-    <AppContext.Provider value={{ ...state, changeLocation }}>
+    <AppContext.Provider value={{ ...state, changeLocation, clearData }}>
       {children}
     </AppContext.Provider>
   );

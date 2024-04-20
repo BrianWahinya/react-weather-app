@@ -7,6 +7,7 @@ const About = () => {
   return (
     <button className="btn-about" onClick={onClick}>
       <Icon type="about" />
+      <span>App-info</span>
     </button>
   );
 };

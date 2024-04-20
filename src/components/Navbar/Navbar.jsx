@@ -6,16 +6,10 @@ import "./css/navbar.css";
 
 const Navbar = () => {
   return (
-    <ReactNavbar color="dark" dark container>
+    <ReactNavbar color="dark" dark container="md">
       <NavbarBrand href="/">
         <Logo />
       </NavbarBrand>
-      <NavbarText>
-        <code>
-          Coding & design stage: please be patient{" "}
-          <span style={{ fontSize: "20px" }}>&#128521;</span>
-        </code>
-      </NavbarText>
       <NavbarText>
         <Time />
       </NavbarText>

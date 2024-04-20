@@ -7,6 +7,7 @@ const ThemeToggler = () => {
   return (
     <button onClick={onClick}>
       <Icon type="light" />
+      <span>Change Theme</span>
     </button>
   );
 };
