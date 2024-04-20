@@ -25,7 +25,10 @@ const useSearch = () => {
   const onChange = (e) => {
     setErrorObj({});
     setQueryKeys([]);
-    setLocation(e.target.value);
+    const val = e.target.value;
+    if (val.length < 26) {
+      setLocation(val);
+    }
   };
 
   const submit = (e) => {

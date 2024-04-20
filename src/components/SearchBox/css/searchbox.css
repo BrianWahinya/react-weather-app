@@ -5,6 +5,8 @@
   align-self: center;
   justify-self: center;
   width: 80%;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   transition: all 0.5s;
 }
 .input-container .input {
@@ -13,7 +15,7 @@
   border-radius: 20px;
   border: 1px solid #adadad;
   outline: none;
-  padding: 18px 16px 18px 45px;
+  padding: 18px 21px 18px 38px;
   background-color: transparent;
   cursor: pointer;
   transition: all 0.5s;

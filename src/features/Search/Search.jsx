@@ -15,12 +15,12 @@ const Search = () => {
   } = useSearch();
 
   return (
-    <div className="divSearch">
+    <div className="div-search">
       <SearchBox value={location} onChange={onChange} submit={submit} />
-      <div className="divInfo">
+      <div className="div-info">
         {isFetching && isLoading && !isError && <Loader />}
         {!isFetching && !isLoading && isError && errorObj.response ? (
-          <p>{errorObj.response.data.message}</p>
+          <p className="p-error">{errorObj.response.data.message}</p>
         ) : (
           <></>
         )}

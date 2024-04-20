@@ -32,7 +32,7 @@ body #root .main {
   min-height: fit-content;
   height: 60%;
   overflow: auto;
-  margin-top: -30px;
+  margin-top: -20px;
 }
 body #root .main .card-location-data {
   max-width: 550px;
@@ -41,7 +41,6 @@ body #root .main .card-location-data {
 }
 body #root .main .card-location-data .card-header {
   background: none;
-  margin-bottom: 5px;
   border: none;
 }
 body #root .main .card-location-data .card-body {
