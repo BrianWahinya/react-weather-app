@@ -7,9 +7,8 @@ const ClearHistory = () => {
     const confirmation = confirm(
       "Are you sure you want to clear your history?"
     );
-    if (!confirmation) {
+    if (confirmation) {
       clearData();
-    } else {
     }
   };
   return (
