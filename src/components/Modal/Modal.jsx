@@ -7,7 +7,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 
-const Modal = ({ title, body, args, BtnModal }) => {
+const Modal = ({ title, body, footer, args, BtnModal }) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
@@ -19,6 +19,7 @@ const Modal = ({ title, body, args, BtnModal }) => {
         <ModalHeader toggle={toggle}>{title}</ModalHeader>
         <ModalBody>{body}</ModalBody>
         <ModalFooter>
+          {footer}
           <Button color="secondary" onClick={toggle}>
             Close
           </Button>
