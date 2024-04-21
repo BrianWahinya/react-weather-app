@@ -23,6 +23,7 @@
   width: fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  margin: 1px 3px;
 }
 .div-sidebar button svg {
   width: 25px;
