@@ -52,4 +52,8 @@
   transform: translate(0, -30px);
   visibility: visible;
   opacity: 1;
+  text-decoration: overline;
+  font-size: small;
+  font-weight: 500;
+  color: rgba(33, 37, 41, 0.8352941176);
 }

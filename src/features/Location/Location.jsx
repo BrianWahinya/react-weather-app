@@ -3,11 +3,11 @@ import "./css/location.css";
 
 const genDetails = (obj) => {
   // console.log(obj);
-  const { name, weather, main } = obj;
+  const { weather, main } = obj.list[0];
   const { main: climate, description, icon } = weather[0];
   return (
     <>
-      <h3>{name}</h3>
+      <h3>{obj.city.name}</h3>
       <p>
         {climate}{" "}
         <img
@@ -23,11 +23,12 @@ const genDetails = (obj) => {
 
 const Location = () => {
   const { data } = useAppContext();
-  //   console.log("location", data);
   return (
     <div className="div-location">
-      {data.length < 1 && <h3>Please enter a location</h3>}
-      {data.length > 0 && genDetails(data[0])}
+      <div>
+        {data.length < 1 && <h3>Please enter a location</h3>}
+        {data.length > 0 && genDetails(data[0])}
+      </div>
     </div>
   );
 };

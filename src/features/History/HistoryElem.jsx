@@ -1,9 +1,10 @@
 const HistoryElem = ({ content }) => {
-  const { name, weather, main } = content;
+  const { weather, main } = content.list[0];
   const { main: climate, description, icon } = weather[0];
+
   return (
     <div className="historyElem" title={description}>
-      <p className="name">{name}</p>
+      <p className="name">{content.city.name}</p>
       <p className="temp">
         {String(main.temp.toFixed(1)).padStart(4, 0)}&deg;C
       </p>

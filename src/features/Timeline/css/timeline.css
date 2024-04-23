@@ -1,0 +1,60 @@
+.div-timeline {
+  width: 100%;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  min-height: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: auto;
+  overflow-y: hidden;
+  font-size: 0.8rem;
+  border: none;
+}
+.div-timeline p {
+  padding: 0;
+  margin: 0;
+}
+.div-timeline::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.183);
+}
+.div-timeline::-webkit-scrollbar-track:hover {
+  cursor: pointer;
+}
+.div-timeline::-webkit-scrollbar {
+  width: 2px;
+  height: 8px;
+}
+.div-timeline::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, hsla(0, 0%, 0%, 0.239)), color-stop(0.72, hsla(0, 0%, 0%, 0.451)), color-stop(0.86, hsla(0, 0%, 0%, 0.686)));
+}
+.div-timeline::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+.div-timeline .timeline-item {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  max-height: 90px;
+  height: 100%;
+  max-width: 20%;
+  min-width: 100px;
+  margin: 5px 5px 8px 5px;
+  padding: 5px 2px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.div-timeline .timeline-item:hover {
+  cursor: pointer;
+  background-color: rgba(132, 132, 132, 0.3294117647);
+}
+.div-timeline .timeline-item .day {
+  text-decoration: underline;
+}
+.div-timeline .timeline-item .timeline-weather-icon {
+  width: 30px;
+  height: 30px;
+}

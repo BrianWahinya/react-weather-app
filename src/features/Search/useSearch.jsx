@@ -1,78 +1,70 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { getWeatherData } from "../../api/methods";
 import { useAppContext } from "../../context/AppContext";
+import useQueryWeather from "../../hooks/useQueryWeather";
 
 const useSearch = () => {
-  const [location, setLocation] = useState("");
-  const [queryKeys, setQueryKeys] = useState([]);
-  const [errorObj, setErrorObj] = useState({});
+  const [locationKey, setLocationKey] = useState("");
+  const [userInput, setUserInput] = useState("");
+  const [errorObj, setErrorObj] = useState(null);
   const { changeLocation } = useAppContext();
 
-  const queryClient = useQueryClient();
-  const { isFetching, isError, isLoading, data, error, refetch } = useQuery({
-    queryKey: queryKeys,
-    queryFn: () => getWeatherData(location),
-    staleTime: 30 * 60 * 1000,
-    refetchInterval: 30 * 60 * 1000,
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
-    enabled: queryKeys.length > 0,
-    retry: 1,
-    retryDelay: 2000,
-  });
+  const { isFetching, isLoading, isError, isSuccess, error, data, refetch } =
+    useQueryWeather(userInput, locationKey);
 
-  const onChange = (e) => {
-    setErrorObj({});
-    setQueryKeys([]);
+  const changeInput = (e) => {
+    // console.log("input", e.target.value);
+    setErrorObj(null);
+    setLocationKey("");
     const val = e.target.value;
     if (val.length < 26) {
-      setLocation(val);
+      setUserInput(val);
     }
   };
 
-  const submit = (e) => {
-    // e.preventDefault();
-    const currentLocation = location.toLowerCase();
-    setErrorObj({});
-    if (currentLocation) {
-      queryClient.invalidateQueries(["weatherData", currentLocation]);
-      setQueryKeys(["weatherData", currentLocation]);
+  const submit = () => {
+    const currentInput = userInput.trim().toLowerCase();
+    // console.log("submit", currentInput);
+    if (currentInput) {
+      setErrorObj(null);
+      setLocationKey(currentInput);
       refetch();
     }
   };
 
   useEffect(() => {
+    setErrorObj(null);
     const keyEnterPress = (e) => {
-      if (e?.key?.toLowerCase() === "enter" && location.length > 1) {
+      if (e?.key?.toLowerCase() === "enter") {
         submit();
       }
     };
     window.addEventListener("keydown", keyEnterPress);
     return () => window.removeEventListener("keydown", keyEnterPress);
-  }, [location]);
+  }, [userInput]);
 
   useEffect(() => {
-    if (isError) {
-      //   console.log(error);
-      setErrorObj(error);
+    // console.log(data);
+    setErrorObj(null);
+    if (!isFetching && !isLoading) {
+      setLocationKey("");
+      if (isSuccess) {
+        changeLocation(data);
+        setUserInput("");
+      } else if (isError) {
+        setErrorObj(error);
+      }
     }
-    if (!isFetching && !isLoading && !isError) {
-      //   console.log("search", data);
-      setErrorObj({});
-      changeLocation(data);
-      setLocation("");
-    }
-  }, [isError, isFetching, isLoading]);
+  }, [isSuccess, isError, isFetching, isLoading, data]);
 
   return {
-    location,
+    userInput,
+    changeInput,
     isFetching,
     isLoading,
     isError,
     errorObj,
-    onChange,
     submit,
   };
 };
+
 export default useSearch;

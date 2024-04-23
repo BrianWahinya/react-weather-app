@@ -5,22 +5,21 @@ import "./css/search.css";
 
 const Search = () => {
   const {
-    location,
+    userInput,
+    changeInput,
     isFetching,
     isLoading,
     isError,
     errorObj,
-    onChange,
     submit,
   } = useSearch();
-
   return (
     <div className="div-search">
-      <SearchBox value={location} onChange={onChange} submit={submit} />
+      <SearchBox value={userInput} changeInput={changeInput} submit={submit} />
       <div className="div-info">
         {isFetching && isLoading && !isError && <Loader />}
-        {!isFetching && !isLoading && isError && errorObj.response ? (
-          <p className="p-error">{errorObj.response.data.message}</p>
+        {!isFetching && !isLoading && isError && errorObj !== null ? (
+          <p className="p-error">{errorObj?.response?.data.message}</p>
         ) : (
           <></>
         )}
