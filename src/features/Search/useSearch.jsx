@@ -32,7 +32,6 @@ const useSearch = () => {
   };
 
   useEffect(() => {
-    setErrorObj(null);
     const keyEnterPress = (e) => {
       if (e?.key?.toLowerCase() === "enter") {
         submit();
@@ -44,23 +43,23 @@ const useSearch = () => {
 
   useEffect(() => {
     // console.log(data);
-    setErrorObj(null);
     if (!isFetching && !isLoading) {
-      setLocationKey("");
       if (isSuccess) {
         changeLocation(data);
         setUserInput("");
+        setLocationKey("");
       } else if (isError) {
         setErrorObj(error);
       }
     }
-  }, [isSuccess, isError, isFetching, isLoading, data]);
+  }, [isSuccess, isError, isFetching, isLoading, data, error]);
 
   return {
     userInput,
     changeInput,
     isFetching,
     isLoading,
+    isSuccess,
     isError,
     errorObj,
     submit,
