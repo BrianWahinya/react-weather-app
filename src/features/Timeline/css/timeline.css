@@ -1,3 +1,11 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .div-timeline {
   width: 100%;
   max-height: -moz-fit-content;
@@ -46,6 +54,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  animation: fadeIn 1s ease-in-out forwards;
+  opacity: 0;
 }
 .div-timeline .timeline-item:hover {
   cursor: pointer;
