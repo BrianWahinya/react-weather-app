@@ -1,20 +1,8 @@
 import { Button } from "reactstrap";
-import { Icon, Modal } from "../../components";
+import { Modal } from "../../components";
 import { useAppContext } from "../../context/AppContext";
 
 import "./css/clearhistory.css";
-
-let modalClose;
-
-const BtnModal = ({ onClick }) => {
-  modalClose = onClick;
-  return (
-    <button onClick={onClick}>
-      <Icon type="clear" />
-      <span>Clear History</span>
-    </button>
-  );
-};
 
 const ClearHistory = () => {
   const { data, clearData } = useAppContext();
@@ -39,7 +27,6 @@ const ClearHistory = () => {
         onClick={() => {
           if (data.length > 0) {
             clearData();
-            modalClose();
           }
         }}
       >
@@ -53,7 +40,7 @@ const ClearHistory = () => {
       title={title}
       body={body}
       footer={footer}
-      BtnModal={BtnModal}
+      btn={{ icon: "clear", cls: "btn-clear", name: "Clear History" }}
       args={{ className: "modal-clear-history", size: "sm" }}
     />
   );

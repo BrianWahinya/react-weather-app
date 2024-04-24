@@ -5,3 +5,4 @@ export { default as SearchBox } from "./SearchBox/SearchBox.jsx";
 export { default as Footer } from "./Footer/Footer.jsx";
 export { default as Icon } from "./Icon/Icon.jsx";
 export { default as Modal } from "./Modal/Modal.jsx";
+export { default as BtnModal } from "./BtnModal/BtnModal.jsx";

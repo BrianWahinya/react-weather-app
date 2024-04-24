@@ -33,29 +33,6 @@ body #root .main {
   overflow: auto;
   margin-top: -20px;
 }
-body #root .main .card-location-data {
-  max-width: 550px;
-  background: none;
-  border: none;
-}
-body #root .main .card-location-data .card-header {
-  background: none;
-  border: none;
-}
-body #root .main .card-location-data .card-body {
-  background-color: rgba(132, 132, 132, 0.137254902) !important;
-  border: 1px solid rgba(0, 0, 0, 0.176);
-  border-radius: 5px 5px 0 0;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px -3px 6px, rgba(0, 0, 0, 0.1) 0px -3px 6px;
-  border-bottom: none;
-}
-body #root .main .card-location-data .card-footer {
-  background-color: rgba(132, 132, 132, 0.137254902) !important;
-  border: 1px solid rgba(0, 0, 0, 0.176);
-  border-radius: 0 0 5px 5px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
-  border-top: none;
-}
 
 .tsqd-parent-container {
   position: absolute;

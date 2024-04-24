@@ -1,14 +1,5 @@
-import { Icon, Modal } from "../../components";
+import { Modal } from "../../components";
 import "./css/about.css";
-
-const BtnModal = ({ onClick }) => {
-  return (
-    <button className="btn-about" onClick={onClick}>
-      <Icon type="about" />
-      <span>App-info</span>
-    </button>
-  );
-};
 
 const title = "Weather App";
 const body = (
@@ -93,7 +84,7 @@ const About = () => {
     <Modal
       title={title}
       body={body}
-      BtnModal={BtnModal}
+      btn={{ icon: "about", cls: "btn-about", name: "App-Info" }}
       args={{ className: "modal-about", size: "lg" }}
     />
   );

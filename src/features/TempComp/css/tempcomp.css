@@ -1,0 +1,7 @@
+button.btn-chart svg {
+  height: 20px;
+  width: 20px;
+}
+button.btn-chart:hover span {
+  transform: translate(0, -20px);
+}

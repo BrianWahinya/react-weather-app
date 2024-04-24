@@ -5,6 +5,7 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import { FcAbout } from "react-icons/fc";
 import { BsFillInfoCircleFill } from "react-icons/bs";
+import { TfiBarChartAlt } from "react-icons/tfi";
 
 const iconsObj = {
   light: <MdLightMode className="light" />,
@@ -12,6 +13,7 @@ const iconsObj = {
   clear: <MdOutlineDeleteSweep />,
   //   about: <BsFillInfoCircleFill />,
   about: <FcAbout />,
+  chart: <TfiBarChartAlt />,
 };
 
 const Icon = ({ type }) => {

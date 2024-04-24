@@ -6,15 +6,18 @@ import {
   ModalBody,
   ModalFooter,
 } from "reactstrap";
+import BtnModal from "../BtnModal/BtnModal";
 
-const Modal = ({ title, body, footer, args, BtnModal }) => {
+const Modal = ({ title, body, footer, btn, args }) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
 
+  const btnModal = (btnProps) => <BtnModal {...btnProps} onClick={toggle} />;
+
   return (
     <>
-      {<BtnModal onClick={toggle} />}
+      {btn && btnModal(btn)}
       <ReactModal isOpen={modal} toggle={toggle} {...args}>
         <ModalHeader toggle={toggle}>{title}</ModalHeader>
         <ModalBody>{body}</ModalBody>

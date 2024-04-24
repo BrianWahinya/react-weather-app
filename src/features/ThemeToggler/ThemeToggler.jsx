@@ -1,14 +1,17 @@
-import { Icon } from "../../components";
+import { Modal } from "../../components";
+
+const title = "Theme Toggle";
+
+const body = <p>This feature is coming soon &#128521;</p>;
 
 const ThemeToggler = () => {
-  const onClick = () => {
-    alert("Theme toggle coming soon");
-  };
   return (
-    <button onClick={onClick}>
-      <Icon type="light" />
-      <span>Change Theme</span>
-    </button>
+    <Modal
+      title={title}
+      body={body}
+      btn={{ icon: "light", cls: "btn-light", name: "Change Theme" }}
+      args={{ className: "modal-theme", size: "sm" }}
+    />
   );
 };
 export default ThemeToggler;

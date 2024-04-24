@@ -7,9 +7,12 @@ import {
   History,
   Location,
   Search,
+  TempComp,
   ThemeToggler,
   Timeline,
 } from "../features";
+
+import "./css/submain.css";
 
 const SubMain = () => {
   useDefaultLocation();
@@ -34,6 +37,10 @@ const SubMain = () => {
             <Search />
           </CardHeader>
           <CardBody>
+            <div className="div-top">
+              <p>&nbsp;</p>
+              <TempComp />
+            </div>
             <Location />
           </CardBody>
           <CardFooter>
