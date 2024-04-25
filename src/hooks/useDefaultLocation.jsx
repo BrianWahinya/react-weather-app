@@ -16,7 +16,7 @@ const useDefaultLocation = () => {
     isSuccess: isSuccessL,
     isError: isErrorL,
     data: locationData,
-    refetch,
+    refetch: refetchL,
   } = useCustomQuery({
     id: ["browserLocation", locationDef],
     fn: isInitialRender && (() => getBrowserLocation()),
@@ -24,7 +24,7 @@ const useDefaultLocation = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      refetch();
+      refetchL();
     }, 1000);
 
     return () => {

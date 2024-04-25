@@ -1,7 +1,19 @@
+button.btn-chart {
+  border: 1px solid rgba(75, 75, 75, 0.4901960784);
+  border-radius: 3px;
+  background: none;
+  padding: 5px;
+}
 button.btn-chart svg {
   height: 20px;
   width: 20px;
 }
+button.btn-chart:hover {
+  background-color: rgba(121, 121, 121, 0.2039215686);
+}
+button.btn-chart:hover svg {
+  opacity: 0.8;
+}
 button.btn-chart:hover span {
-  transform: translate(0, -20px);
+  transform: translate(0, -26px);
 }

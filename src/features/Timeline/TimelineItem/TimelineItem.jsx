@@ -13,9 +13,12 @@ const TimelineItem = ({ content }) => {
   const { dt_txt, weather, main } = content;
   const { main: climate, description, icon } = weather[0];
   const { day, time } = getFullDayTime(dt_txt);
-
   return (
-    <div className="timeline-item" title={description}>
+    <div
+      className="timeline-item"
+      title={description}
+      data-tooltip={description}
+    >
       <p className="day">{day}</p>
       <p className="time">{time}</p>
       <p className="temp">
@@ -29,6 +32,7 @@ const TimelineItem = ({ content }) => {
         />
         {climate}
       </p>
+      <p className="timeline-item-tooltip">{description}</p>
     </div>
   );
 };

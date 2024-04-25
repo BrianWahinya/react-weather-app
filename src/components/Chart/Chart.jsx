@@ -3,7 +3,7 @@ import ReactECharts from "echarts-for-react";
 const defaultOptions = {
   title: {
     itemGap: 0,
-    subtext: "Avg Temp Per Day",
+    subtext: "\u00B0C",
   },
   grid: {
     top: 40,
@@ -32,7 +32,11 @@ const defaultOptions = {
     triggerOn: "mousemove|click",
     confine: true,
     renderMode: "html",
-    valueFormatter: (value) => `${value}\u00B0C`,
+    backgroundColor: "rgba(50,50,50,0.8)",
+    textStyle: {
+      color: "#edededed",
+    },
+    valueFormatter: (value) => `${parseFloat(value.toFixed(2))}\u00B0C`,
   },
 };
 

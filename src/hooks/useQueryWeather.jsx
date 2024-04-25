@@ -1,16 +1,6 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getWeatherDataDaily } from "../api/methods";
 
-const def = {
-  isFetching: null,
-  isLoading: null,
-  isError: null,
-  isSuccess: null,
-  error: {},
-  data: {},
-  refetch: () => null,
-};
-
 const useQueryWeather = (location, key) => {
   // console.log("location", location);
   // const queryClient = useQueryClient();

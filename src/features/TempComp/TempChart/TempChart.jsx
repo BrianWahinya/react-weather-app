@@ -23,34 +23,49 @@ const genTempArr = (list) =>
     return { day: getDayOfWeek(dt_txt), temp: main.temp };
   });
 
-const getAvgPerDay = (arr) => {
+const getCategoryData = (arr) => {
   const formattedArr = genTempArr(arr);
   //   console.log(arr, formattedArr);
   const uniqueDays = [...new Set(formattedArr.map((item) => item.day))];
   //   console.log("uniqueDays", uniqueDays);
-  const avgTempPerDay = uniqueDays.reduce((accum, curr) => {
-    const filtered = formattedArr.filter((item) => item.day === curr);
-    const sum = filtered.reduce(
-      (total, num) => (total += parseFloat(num.temp)),
-      0
-    );
-    accum.push({
-      day: curr,
-      avg: sum / filtered.length,
-    });
-    return accum;
-  }, []);
+  const categories = {
+    max: {
+      name: "Max",
+      data: [],
+    },
+    avg: {
+      name: "Avg",
+      data: [],
+    },
+    min: {
+      name: "Min",
+      data: [],
+    },
+  };
 
-  return { uniqueDays, avgTempPerDay };
+  uniqueDays.forEach((day) => {
+    const filtered = formattedArr.filter((item) => item.day === day);
+    const tempArr = filtered.map((item) => item.temp);
+    const tempMax = Math.max(...tempArr);
+    const tempMin = Math.min(...tempArr);
+    const tempAvg =
+      tempArr.reduce((sum, num) => (sum += num), 0) / tempArr.length;
+
+    categories.max.data.push(tempMax);
+    categories.avg.data.push(tempAvg);
+    categories.min.data.push(tempMin);
+  });
+
+  return { uniqueDays, categoryData: Object.values(categories) };
 };
+const seriesColors = { max: "#b93800b3", avg: "#6c9602bb", min: "#02a5ebbb" };
 
 const genOptions = (data) => {
-  const { uniqueDays, avgTempPerDay } = getAvgPerDay(data);
-  const seriesData = avgTempPerDay.map((item) =>
-    parseFloat(item.avg.toFixed(2))
-  );
-  //   console.log("uniqueDays", uniqueDays, seriesData);
+  const { uniqueDays, categoryData } = getCategoryData(data);
   return {
+    legend: {
+      data: ["Max", "Avg", "Min"],
+    },
     xAxis: {
       type: "category",
       data: uniqueDays,
@@ -63,13 +78,18 @@ const genOptions = (data) => {
       type: "value",
       max: 50,
     },
-    series: [
-      {
-        data: seriesData,
-        type: "line",
-        smooth: true,
+    series: categoryData.map((item) => ({
+      ...item,
+      type: "line",
+      smooth: true,
+      symbolSize: 8,
+      itemStyle: {
+        color: seriesColors[item.name.toLowerCase()],
       },
-    ],
+      lineStyle: {
+        width: 2,
+      },
+    })),
   };
 };
 
